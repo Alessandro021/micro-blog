@@ -10,7 +10,6 @@ export const useAuthentication = () => {
     //lidar com vazamento de memória
 
     const [cancelled, setCancelled] = useState(false);
-
     const auth = getAuth();
     //CLEANUP
     const checkIfISCancelled = () => {
@@ -47,9 +46,40 @@ export const useAuthentication = () => {
         }
     };
 
+    const logout = () => {
+        checkIfISCancelled();
+        signOut(auth);
+    };
+
+    const login = async (data) => {
+        checkIfISCancelled();
+        setLoading(true);
+        setError(false);
+
+        try {
+            await signInWithEmailAndPassword(auth, data.email, data.password);
+            setLoading(false);
+        } catch (error) {
+            console.log(error.message);
+            console.log(typeof error.message);
+
+            let systemErrorMessage;
+            if(error.message.includes("user-not-found")) {
+                systemErrorMessage = "Usuario não encontrado.";
+            } else if(error.message.includes("wrong-password")) {
+                systemErrorMessage = "Senha incorreta.";
+            } else {
+                systemErrorMessage = "Ocorreu um error inesperado!";
+            }
+            
+            setLoading(false);
+            setError(systemErrorMessage);
+        }
+    };
+
     useEffect(() => {
         return () => setCancelled(true);
     },[]);
 
-    return { auth, createUser, error, loading};
+    return { auth, createUser, error, loading, logout, login};
 };

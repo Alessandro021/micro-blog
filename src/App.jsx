@@ -20,7 +20,6 @@ function App() {
     const {auth} = useAuthentication();
 
     const loadingUser = user === undefined;
-    console.log(loadingUser);
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -42,8 +41,9 @@ function App() {
                             <Route path="/about"  element={<About />} />
                             <Route path="/login"  element={!user ? <Login /> : <Navigate to="/" />} />
                             <Route path="/register"  element={!user ? <Register /> : <Navigate to="/" />} />
-                            <Route path="/dashboard"  element={user ? <Dashboard /> : <Navigate to="/login" />} />
                             <Route path="/posts/create"  element={user ? <CreatePost /> : <Navigate to="/login" />} />
+                            <Route path="/dashboard"  element={user ? <Dashboard /> : <Navigate to="/login" />} />
+                            {/* <Route path="/dashboard"  element={user ? <Dashboard /> : <Navigate to="/login" />} /> */}
                         </Routes>
                     </div>
                     <Footer />
