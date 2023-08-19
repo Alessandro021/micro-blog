@@ -1,0 +1,12 @@
+.create_post {
+    text-align: center;
+}
+
+.create_post h2 {
+    font-size: 36px;
+}
+
+.create_post p {
+    color: #AAA;
+    margin-bottom: 32px;
+}
