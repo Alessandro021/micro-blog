@@ -1,0 +1,58 @@
+.dashboard {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard h2 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.dashboard p {
+    color: #AAA;
+    margin-bottom: 16px;
+}
+
+.noposts {
+    text-align: center;
+}
+
+.noposts p {
+    margin-bottom: 24px;
+}
+
+.noposts  a {
+    padding: 10px 25px;
+}
+
+.post_header, .post_row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #CCC;
+    width: 80%;
+    padding: 10px;
+}
+
+.post_header {
+    font-weight: bold;
+    border-bottom: 2px solid #CCC;
+}
+
+.post_row {
+    align-items: center;
+    border-bottom: 1px solid #EEE;
+}
+
+.post_row p {
+    color: #000;
+}
+
+.post_row a, .post_row button {
+    margin: 0 5px;
+    height: 30px;
+    width: 100px;
+    font-size: 12px;
+}
