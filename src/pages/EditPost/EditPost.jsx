@@ -21,8 +21,9 @@ const EditPost = () => {
             setTitle(post.title);
             setImage(post.image);
             setBody(post.body);
+            const textTags = post.tags.join(", ");
             // console.log(post.tags);
-            setTags(post.tags);
+            setTags(textTags);
         } 
     },[post]);
 
@@ -42,7 +43,7 @@ const EditPost = () => {
             setFormError("A imagem precisa ser uma url.");
         }
 
-        // const tagsarray = tags.split(",").map(tag => tag.trim().toLowerCase());
+        const tagsarray = tags.split(",").map(tag => tag.trim().toLowerCase());
 
         if(!title || !image || !tags || !body) {
             setFormError("Por favor preencha todos os campos.");
@@ -54,7 +55,7 @@ const EditPost = () => {
             title: title,
             image: image,
             body: body,
-            tags: tags,
+            tags: tagsarray,
             uid: user.uid,
             createdBy: user.displayName
         };
