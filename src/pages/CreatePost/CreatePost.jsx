@@ -52,7 +52,7 @@ const CreatePost = () => {
     return (
         <div className={styles.create_post}>
             <h2>Criar post</h2>
-            <p>Escreva o que você quiser e cmpartilhe seu conhecimento!.</p>
+            <p>Escreva o que você quiser e compartilhe seu conhecimento!.</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>Título:</span>
